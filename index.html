@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineWave - OTT</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+  <div class="logo">Vibes TV</div>
+
+  <div class="nav-right">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tvshows.html">TV Shows</a>
+      <a href="newstv.html">News TV</a>
+      <a href="subscription.html">Subscriptions</a>
+    </nav>
+
+    <!-- Sign In as an <a> or <button> -- it has no underline and uses the gradient -->
+    <a href="signin.html" class="btn-primary">Sign In</a>
+  </div>
+</header>
+
+
+  <!-- ✅ Hero Banner Slider -->
+  <main class="hero-slider">
+    <div class="slides">
+      
+      <!-- Slide 1 -->
+      <div class="slide active">
+        <video autoplay muted loop>
+          <source src="videos/vid1.mp4" type="video/mp4">
+        </video>
+        <div class="slide-overlay">
+          <div class="slide-text">
+            <h1>The Gorge</h1>
+            <p>Action • Thriller • Adventure</p>
+             <p class="desc">Two strangers are forced to team up when a deadly conspiracy unfolds.<br>
+      Their fight for survival takes them to the edge of human endurance.</p>
+            <button class="btn-primary">▶ Watch Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide">
+        <video autoplay muted loop>
+          <source src="videos/vid2.mp4" type="video/mp4">
+        </video>
+        <div class="slide-overlay">
+          <div class="slide-text">
+            <h1>Romantic Nights</h1>
+            <p>Love • Drama • Emotions</p>
+            <p>A heartwarming tale of love, longing, and unforgettable moments.
+Emotions run deep as two souls find their way to each other.</p>
+            <button class="btn-primary">▶ Watch Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide">
+        <video autoplay muted loop>
+          <source src="videos/vid3.mp4" type="video/mp4">
+        </video>
+        <div class="slide-overlay">
+          <div class="slide-text">
+            <h1>Galaxy Wars</h1>
+            <p>Sci-Fi • Space • Action</p>
+            <p>An epic space adventure where galaxies clash for ultimate power.
+Heroes rise, alliances break, and battles decide the fate of the universe.</p>
+            <button class="btn-primary">▶ Watch Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slide">
+        <video autoplay muted loop>
+          <source src="videos/vid4.mp4" type="video/mp4">
+        </video>
+        <div class="slide-overlay">
+          <div class="slide-text">
+            <h1>Comedy Nights</h1>
+            <p>Fun • Laughter • Family</p>
+            <p>A light-hearted show packed with hilarious sketches and witty punchlines.
+Perfect for family evenings filled with laughter and fun.</p>
+            <button class="btn-primary">▶ Watch Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Dots -->
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </main>
+
+  <!-- Languages — Classy Version -->
+<section class="languages classy" aria-labelledby="langTitle">
+  <div class="languages-wrap">
+    <div class="lang-left">
+      <h2 id="langTitle">Language & Playback</h2>
+      <p class="lead">Choose audio and subtitles to enjoy content in the language you prefer.</p>
+
+      <div class="lang-grid" id="langGrid" role="list">
+        <!-- Use small flag PNGs/SVGs if you have them; emojis used as fallback -->
+        <button class="lang-pill active" data-lang="en" role="listitem" aria-pressed="true">
+          <span class="flag">🇬🇧</span>
+          <span class="lbl">English</span>
+        </button>
+
+        <button class="lang-pill" data-lang="hi" role="listitem" aria-pressed="false">
+          <span class="flag">🇮🇳</span>
+          <span class="lbl">हिन्दी</span>
+        </button>
+
+        <button class="lang-pill" data-lang="ta" role="listitem" aria-pressed="false">
+          <span class="flag">🇮🇳</span>
+          <span class="lbl">தமிழ்</span>
+        </button>
+
+        <button class="lang-pill" data-lang="es" role="listitem" aria-pressed="false">
+          <span class="flag">🇪🇸</span>
+          <span class="lbl">Español</span>
+        </button>
+
+        <button class="lang-pill" data-lang="ko" role="listitem" aria-pressed="false">
+          <span class="flag">🇰🇷</span>
+          <span class="lbl">한국어</span>
+        </button>
+
+        <button class="lang-pill" data-lang="fr" role="listitem" aria-pressed="false">
+          <span class="flag">🇫🇷</span>
+          <span class="lbl">Français</span>
+        </button>
+      </div>
+
+      <div class="lang-note">Tip: we’ll apply your choice across the app — change anytime.</div>
+    </div>
+
+    <aside class="lang-right" aria-label="Audio and Subtitles preferences">
+      <div class="prefs">
+        <label class="pref-label">Audio</label>
+        <div class="pref-row">
+          <button class="pref-btn active" data-audio="original">Original</button>
+          <button class="pref-btn" data-audio="dubbed">Dubbed</button>
+        </div>
+
+        <label class="pref-label">Subtitles</label>
+        <div class="pref-row">
+          <select id="subSelect" class="pref-select" aria-label="Subtitle language">
+            <option value="off">Off</option>
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+
+        <button id="saveLangBtn" class="btn-primary save-btn">Save Preference</button>
+      </div>
+    </aside>
+  </div>
+</section>
+
+
+
+  
+ <!-- Movies Row -->
+<section class="row">
+  <div class="row-header">
+    <h2>Drama Movies</h2>
+    <a href="#">See more &gt;</a>
+  </div>
+  <div class="row-slider">
+    <button class="arrow left">&#10094;</button>
+    <div class="row-track">
+      
+      <a href="mov.html" class="row-card">
+  <img src="images/1.png" alt="Maalik">
+  <div class="card-overlay">
+    <h3>Maalik</h3>
+    <p>2025 • 2h 10m • Action</p>
+    <p class="desc">A gripping tale of power, betrayal, and survival.</p>
+  </div>
+</a>
+
+
+<div class="row-card">
+  <img src="images/2.png" alt="Thalaivan Thalaivi">
+  <div class="card-overlay">
+    <h3>Thalaivan Thalaivi</h3>
+    <p>2025 • 2h 30m • Drama</p>
+    <p class="desc">An epic political journey of leadership and sacrifice.</p>
+  </div>
+</div>
+
+<div class="row-card">
+  <img src="images/3.png" alt="Housefull 5">
+  <div class="card-overlay">
+    <h3>Housefull 5</h3>
+    <p>2025 • 2h 05m • Comedy</p>
+    <p class="desc">The madness continues with laughter, chaos, and drama.</p>
+  </div>
+</div>
+
+<div class="row-card">
+  <img src="images/4.png" alt="Paradha">
+  <div class="card-overlay">
+    <h3>Paradha</h3>
+    <p>2025 • 2h 20m • Thriller</p>
+    <p class="desc">A suspenseful mystery that keeps you hooked till the end.</p>
+  </div>
+</div>
+
+<div class="row-card">
+  <img src="images/5.png" alt="The Map that leads to you">
+  <div class="card-overlay">
+    <h3>The Map That Leads to You</h3>
+    <p>2025 • 1h 55m • Romance</p>
+    <p class="desc">A love story that transcends distance and time.</p>
+  </div>
+</div>
+
+<div class="row-card">
+  <img src="images/6.png" alt="Interstellar">
+  <div class="card-overlay">
+    <h3>Interstellar</h3>
+    <p>2014 • 2h 49m • Sci-Fi</p>
+    <p class="desc">A breathtaking journey through space, love, and survival.</p>
+  </div>
+</div>
+
+<div class="row-card">
+  <img src="images/7.png" alt="Teri baaton mein aisa ulja jiya">
+  <div class="card-overlay">
+    <h3>Teri Baaton Mein Aisa Ulja Jiya</h3>
+    <p>2024 • 2h 10m • Romance</p>
+    <p class="desc">A quirky romantic tale filled with emotions and surprises.</p>
+  </div>
+</div>
+
+<div class="row-card">
+  <img src="images/8.png" alt="Me before you">
+  <div class="card-overlay">
+    <h3>Me Before You</h3>
+    <p>2016 • 1h 50m • Drama</p>
+    <p class="desc">A heart-touching story of love, courage, and choices.</p>
+  </div>
+</div>  
+    </div>
+    <button class="arrow right">&#10095;</button>  
+  </div>
+</section>
+
+<section class="row">
+  <div class="row-header">
+    <h2>Movies in English</h2>
+    <a href="#">See more &gt;</a>
+  </div>
+  <div class="row-slider">
+    <button class="arrow left">&#10094;</button>
+    <div class="row-track">
+      <div class="row-card"><img src="images/9.png" alt="Maalik"></div>
+      <div class="row-card"><img src="images/10.png" alt="Thalaivan Thalaivi"></div>
+      <div class="row-card"><img src="images/11.png" alt="Housefull 5"></div>
+      <div class="row-card"><img src="images/12.png" alt="Paradha"></div>
+      <div class="row-card"><img src="images/13.png" alt="The Map that leads to you"></div>
+      <div class="row-card"><img src="images/14.png" alt="Interstellar"></div>
+      <div class="row-card"><img src="images/15.png" alt="Teri baaton mein aisa ulja jiya"></div>
+      <div class="row-card"><img src="images/16.png" alt="Me before you"></div>
+    </div>
+    <button class="arrow right">&#10095;</button>  
+  </div>
+</section>
+
+
+<section class="row">
+  <div class="row-header">
+    <h2>Kids Movies</h2>
+    <a href="#">See more &gt;</a>
+  </div>
+  <div class="row-slider">
+    <button class="arrow left">&#10094;</button>
+    <div class="row-track">
+      <div class="row-card"><img src="images/17.png" alt="Maalik"></div>
+      <div class="row-card"><img src="images/18.png" alt="Thalaivan Thalaivi"></div>
+      <div class="row-card"><img src="images/19.png" alt="Housefull 5"></div>
+      <div class="row-card"><img src="images/20.png" alt="Paradha"></div>
+      <div class="row-card"><img src="images/21.png" alt="The Map that leads to you"></div>
+      <div class="row-card"><img src="images/22.png" alt="Interstellar"></div>
+      <div class="row-card"><img src="images/23.png" alt="Teri baaton mein aisa ulja jiya"></div>
+      <div class="row-card"><img src="images/24.png" alt="Me before you"></div>
+    </div>
+    <button class="arrow right">&#10095;</button>  
+  </div>
+</section>
+
+<section class="row">
+  <div class="row-header">
+    <h2>Action and atventure Movies</h2>
+    <a href="#">See more &gt;</a>
+  </div>
+  <div class="row-slider">
+    <button class="arrow left">&#10094;</button>
+    <div class="row-track">
+      <div class="row-card"><img src="images/25.png" alt="Maalik"></div>
+      <div class="row-card"><img src="images/26.png" alt="Thalaivan Thalaivi"></div>
+      <div class="row-card"><img src="images/27.png" alt="Housefull 5"></div>
+      <div class="row-card"><img src="images/28.png" alt="Paradha"></div>
+      <div class="row-card"><img src="images/29.png" alt="The Map that leads to you"></div>
+      <div class="row-card"><img src="images/30.png" alt="Interstellar"></div>
+      <div class="row-card"><img src="images/31.png" alt="Teri baaton mein aisa ulja jiya"></div>
+      <div class="row-card"><img src="images/32.png" alt="Me before you"></div>
+    </div>
+    <button class="arrow right">&#10095;</button>  
+  </div>
+</section>
+
+<section class="row">
+  <div class="row-header">
+    <h2>Korean Romantic Movies</h2>
+    <a href="#">See more &gt;</a>
+  </div>
+  <div class="row-slider">
+    <button class="arrow left">&#10094;</button>
+    <div class="row-track">
+      <div class="row-card"><img src="images/33.png" alt="Maalik"></div>
+      <div class="row-card"><img src="images/34.png" alt="Thalaivan Thalaivi"></div>
+      <div class="row-card"><img src="images/35.png" alt="Housefull 5"></div>
+      <div class="row-card"><img src="images/36.png" alt="Paradha"></div>
+      <div class="row-card"><img src="images/37.png" alt="The Map that leads to you"></div>
+      <div class="row-card"><img src="images/38.png" alt="Interstellar"></div>
+      <div class="row-card"><img src="images/39.png" alt="Teri baaton mein aisa ulja jiya"></div>
+      <div class="row-card"><img src="images/40.png" alt="Me before you"></div>
+    </div>
+    <button class="arrow right">&#10095;</button>  
+  </div>
+</section>
+
+<section class="row">
+  <div class="row-header">
+    <h2>Science Fiction Movies</h2>
+    <a href="#">See more &gt;</a>
+  </div>
+  <div class="row-slider">
+    <button class="arrow left">&#10094;</button>
+    <div class="row-track">
+      <div class="row-card"><img src="images/41.png" alt="Maalik"></div>
+      <div class="row-card"><img src="images/42.png" alt="Thalaivan Thalaivi"></div>
+      <div class="row-card"><img src="images/43.png" alt="Housefull 5"></div>
+      <div class="row-card"><img src="images/44.png" alt="Paradha"></div>
+      <div class="row-card"><img src="images/45.png" alt="The Map that leads to you"></div>
+      <div class="row-card"><img src="images/46.png" alt="Interstellar"></div>
+      <div class="row-card"><img src="images/47.png" alt="Teri baaton mein aisa ulja jiya"></div>
+      <div class="row-card"><img src="images/48.png" alt="Me before you"></div>
+    </div>
+    <button class="arrow right">&#10095;</button>  
+  </div>
+</section>
+
+<!-- VIBES NEWS (Classy redesign) -->
+<section id="vibes-news" class="section news-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Vibes News</h2>
+      <a class="see-all" href="#">See all news →</a>
+    </div>
+
+    <div class="news-grid">
+      <article class="news-card">
+        <div class="news-media">
+          <img src="images/news1.jpg" alt="New original series announced">
+        </div>
+        <div class="news-content">
+          <div class="news-meta">
+            <span class="tag">Entertainment</span>
+            <time datetime="2025-11-08">Nov 8, 2025</time>
+          </div>
+          <h3>New original series announced for winter</h3>
+          <p class="news-excerpt">Vibes TV teases a high-octane original — filming starts next month with an international cast.</p>
+          <div class="news-cta">
+            <a href="#" class="btn-outline small">Read</a>
+            <a href="#" class="btn-primary small">Watch Trailer</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-media">
+          <img src="images/news2.jpg" alt="Neon Chase release">
+        </div>
+        <div class="news-content">
+          <div class="news-meta">
+            <span class="tag">Releases</span>
+            <time datetime="2025-11-05">Nov 5, 2025</time>
+          </div>
+          <h3>Neon Chase — global release date confirmed</h3>
+          <p class="news-excerpt">The action-thriller lands on Vibes TV Dec 10 — trailers and behind-the-scenes now available.</p>
+          <div class="news-cta">
+            <a href="#" class="btn-outline small">Details</a>
+            <a href="#" class="btn-primary small">Set Reminder</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <div class="news-media">
+          <img src="images/news3.jpg" alt="Midnight Echoes Season 2">
+        </div>
+        <div class="news-content">
+          <div class="news-meta">
+            <span class="tag">Originals</span>
+            <time datetime="2025-10-28">Oct 28, 2025</time>
+          </div>
+          <h3>Midnight Echoes returns for Season 2</h3>
+          <p class="news-excerpt">Critically acclaimed thriller renewed — expect darker turns and new characters next season.</p>
+          <div class="news-cta">
+            <a href="#" class="btn-outline small">Preview</a>
+            <a href="#" class="btn-primary small">Follow</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS NOW — classy carousel / scrollable row -->
+<section id="events-now" class="section events-section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Events Now</h2>
+      <a class="see-all" href="#">All events →</a>
+    </div>
+
+    <div class="events-row" id="eventsRow" tabindex="0" aria-label="Live and upcoming events">
+      <!-- Event 1 -->
+      <div class="event-card">
+        <div class="event-thumb" style="background-image:url('images/event1.jpg')">
+          <span class="badge live">LIVE</span>
+        </div>
+        <div class="event-body">
+          <div class="event-meta"><strong>Ongoing</strong> • Today, 7:00 PM</div>
+          <h3>Red Carpet Premiere</h3>
+          <p class="ev-desc">Watch the star-studded premiere with live interviews and behind-the-scenes access.</p>
+          <div class="ev-cta">
+            <button class="btn-primary">Watch Live</button>
+            <button class="btn ghost" data-action="remind">Remind Me</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="event-card">
+        <div class="event-thumb" style="background-image:url('images/event2.jpg')">
+          <span class="badge upcoming">UPCOMING</span>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">Upcoming • Nov 20, 2025</div>
+          <h3>Fan Q&A — Neon Chase</h3>
+          <p class="ev-desc">Join the cast live for a global Q&A and exclusive clips.</p>
+          <div class="ev-cta">
+            <button class="btn-primary">Set Reminder</button>
+            <button class="btn ghost">Add to Calendar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div class="event-card">
+        <div class="event-thumb" style="background-image:url('images/event3.jpg')">
+          <span class="badge live">LIVE</span>
+        </div>
+        <div class="event-body">
+          <div class="event-meta">Live • Ongoing</div>
+          <h3>Festival Highlights</h3>
+          <p class="ev-desc">24/7 curated festival channel — top indie films and director interviews.</p>
+          <div class="ev-cta">
+            <button class="btn-primary">Explore</button>
+            <button class="btn ghost">+ My List</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- horizontal controls for keyboard / tiny arrows -->
+    <div class="events-controls">
+      <button id="eventsPrev" class="icon-btn" aria-label="Previous">&#10094;</button>
+      <button id="eventsNext" class="icon-btn" aria-label="Next">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ✅ Download App Section -->
+  <section class="download-app">
+    <div class="download-content">
+      <h2>Get the Vibes TV App</h2>
+      <p>Watch your favorite movies and shows anytime, anywhere. Enjoy seamless streaming on all your devices.</p>
+      <div class="app-buttons">
+        <a href="#" class="store-btn">
+          <img src="images/playstore.png" alt="Google Play">
+          <span>Get it on<br><strong>Google Play</strong></span>
+        </a>
+        <a href="#" class="store-btn">
+          <img src="images/appstore.png" alt="App Store">
+          <span>Download on the<br><strong>App Store</strong></span>
+        </a>
+      </div>
+    </div>
+    <div class="download-image">
+      <img src="images/mobile-app-preview.png" alt="CineWave App Preview">
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-brand">CineWave</div>
+  <div class="footer-links">
+    <a href="#">Terms and Privacy Notice</a>
+    <a href="#">Send us feedback</a>
+    <a href="#">Help</a>
+  </div>
+  <p class="footer-copy">© 2025 CineWave. All rights reserved.</p>
+</footer>
+
+
+
+
+
+<script type="module" src="main.js"></script>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+
+
+</body>
+</html>

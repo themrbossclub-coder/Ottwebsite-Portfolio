@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineWave - TV Shows</title>
+  <link rel="stylesheet" href="tvshows.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+  <div class="logo">Vibes TV</div>
+
+  <div class="nav-right">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tvshows.html">TV Shows</a>
+      <a href="newstv.html">News TV</a>
+      <a href="subscription.html">Subscriptions</a>
+    </nav>
+
+    <!-- Sign In as an <a> or <button> -- it has no underline and uses the gradient -->
+    <a href="signin.html" class="btn-primary">Sign In</a>
+  </div>
+</header>
+
+  <div class="container">
+    <!-- Sidebar Categories -->
+    <aside class="sidebar">
+      <h2>Categories</h2>
+      <ul>
+        <li data-category="music">Music</li>
+        <li data-category="news">News</li>
+        <li data-category="cricket">Cricket</li>
+        <li data-category="entertainment">Entertainment</li>
+        <li data-category="business">Business</li>
+        <li data-category="kids">Kids</li>
+        <li data-category="lifestyle">Lifestyle</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <!-- Language Filters -->
+      <div class="languages">
+        <button data-lang="all" class="active">All</button>
+        <button data-lang="hindi">Hindi</button>
+        <button data-lang="english">English</button>
+        <button data-lang="tamil">Tamil</button>
+        <button data-lang="telugu">Telugu</button>
+        <button data-lang="kannada">Kannada</button>
+        <button data-lang="malayalam">Malayalam</button>
+        <button data-lang="bengali">Bengali</button>
+        <button data-lang="marathi">Marathi</button>
+        <button data-lang="punjabi">Punjabi</button>
+        <button data-lang="gujarati">Gujarati</button>
+      </div>
+
+      <!-- Shows Grid -->
+      <div class="show-grid" id="showGrid">
+        <div class="show-card" data-category="music" data-lang="hindi">
+          <img src="images/49.png" alt="Music Show 1">
+          <h3>Hindi Music Show</h3>
+        </div>
+        <div class="show-card" data-category="news" data-lang="english">
+          <img src="images/50.png" alt="News Show 1">
+          <h3>English News</h3>
+        </div>
+        <div class="show-card" data-category="cricket" data-lang="tamil">
+          <img src="images/51.png" alt="Cricket Show 1">
+          <h3>Tamil Cricket Show</h3>
+        </div>
+        <div class="show-card" data-category="entertainment" data-lang="telugu">
+          <img src="images/52.png" alt="Entertainment Show 1">
+          <h3>Telugu Entertainment</h3>
+        </div>
+        <div class="show-card" data-category="business" data-lang="hindi">
+          <img src="images/53.png" alt="Business Show 1">
+          <h3>Hindi Business</h3>
+        </div>
+        <div class="show-card" data-category="kids" data-lang="english">
+          <img src="images/54.png" alt="Kids Show 1">
+          <h3>English Kids Show</h3>
+        </div>
+        <div class="show-card" data-category="lifestyle" data-lang="malayalam">
+          <img src="images/55.png" alt="Lifestyle Show 1">
+          <h3>Malayalam Lifestyle</h3>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+<footer class="footer">
+  <div class="footer-brand">CineWave</div>
+  <div class="footer-links">
+    <a href="#">Terms and Privacy Notice</a>
+    <a href="#">Send us feedback</a>
+    <a href="#">Help</a>
+  </div>
+  <p class="footer-copy">© 2025 CineWave. All rights reserved.</p>
+</footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+  const langButtons = document.querySelectorAll(".languages button");
+  const categoryItems = document.querySelectorAll(".sidebar ul li");
+  const showCards = document.querySelectorAll(".show-card");
+
+  let selectedLang = "all";
+  let selectedCategory = null;
+
+  function filterShows() {
+    showCards.forEach(card => {
+      const cardLang = card.getAttribute("data-lang");
+      const cardCategory = card.getAttribute("data-category");
+
+      const langMatch = (selectedLang === "all" || selectedLang === cardLang);
+      const categoryMatch = (!selectedCategory || selectedCategory === cardCategory);
+
+      if (langMatch && categoryMatch) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  // Language filter
+  langButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      langButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      selectedLang = btn.getAttribute("data-lang");
+      filterShows();
+    });
+  });
+
+  // Category filter
+  categoryItems.forEach(item => {
+    item.addEventListener("click", () => {
+      categoryItems.forEach(i => i.classList.remove("active"));
+      item.classList.add("active");
+      selectedCategory = item.getAttribute("data-category");
+      filterShows();
+    });
+  });
+
+  filterShows();
+});
+
+  </script>
+</body>
+</html>
